@@ -1,3 +1,11 @@
+from msilib.schema import Class
+from tabnanny import verbose
 from django.db import models
 
-# Create your models here.
+
+class Post(models.Model):
+    title = models.CharField(max_length=100, null=False, blank=False, verbose_name='post title')
+    summary = models.CharField(max_length=400, null=False, blank=False, verbose_name='post summary')
+    content = models.TextField(verbose_name='post content', null=False, blank=False)
+    date_posted = models.DateTimeField(verbose_name='created at', auto_now_add=True)
+
