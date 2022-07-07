@@ -1,5 +1,7 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import redirect, render
+
 from blog.models import Post
+
 
 def index(request):
     posts = Post.objects.all()
