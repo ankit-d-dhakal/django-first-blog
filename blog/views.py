@@ -27,4 +27,7 @@ def create(request):
         # Post.objects.create(summary=summary)
         # Post.objects.create(content=content)
         return redirect('index')
-    return render(request, 'blog/blog-create.html') 
+    return render(request, 'blog/blog-create.html')
+
+def edit(request):
+    pass  
