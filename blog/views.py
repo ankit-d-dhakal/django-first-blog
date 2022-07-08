@@ -4,7 +4,7 @@ from blog.models import Post
 
 
 def index(request):
-    posts = Post.objects.all()
+    posts = Post.objects.filter(is_published=True).order_by('-views')
     ctx = {
         'posts': posts,
     }
@@ -13,6 +13,8 @@ def index(request):
 
 def single(request, id):
     post = Post.objects.get(id=id)
+    post.views += 1
+    post.save() 
     ctx = {
         'post': post,
     }

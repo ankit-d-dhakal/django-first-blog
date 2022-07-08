@@ -1,12 +1,25 @@
 {% extends 'blog/layout.html' %}
 
+{% block extrastyles %}
+<style>
+    .container {
+        {% if post.thumbnail %}
+
+            background-image: url('{{ post.thumbnail.url }}');
+
+        {% endif %}
+    }
+</style>
+
+{% endblock %}
+
 {% block body %}
 
 <div class="container mt-3">
 
-    {{ post.title }} 
-    {{ post.summary }}
-    {{ post.content }}
+    <h2> {{ post.title }} </h2><br> 
+    <h3> {{ post.summary }} </h3>
+    <p> {{ post.content }} </p>
 
     <button type="submit" class="btn btn-primary">Edit</button>
 

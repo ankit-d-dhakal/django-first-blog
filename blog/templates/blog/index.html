@@ -10,7 +10,13 @@
 
     <div class="col">
       <div class="card">
-        <img src="..." class="card-img-top" alt="...">
+
+        {% if post.thumbnail %}
+          <img src="{{ post.thumbnail.url }}" class="card-img-top" alt="Card image cap">
+        {% else %}
+          <img src="https://picsum.photos/300/200" class="card-img-top" alt="Card image cap">
+        {% endif %}
+
         <div class="card-body">
           <h5 class="card-title">
             <a href="{% url 'single_blog_page' post.id %}">
@@ -21,7 +27,8 @@
           </h5>
           <p class="card-text">{{ post.summary }}</p>
         </div>
-        <div class="text-muted">{{ post.date_posted }}
+        <div class="card-footer">
+          <small class="text-muted">{{ post.date_posted }} | {{ post.views }}</small>
         </div>
       </div>
     </div>
